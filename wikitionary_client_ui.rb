@@ -1,6 +1,5 @@
 require 'faraday'
 require 'json'
-
 require './lib/entry'
 
 def welcome
@@ -12,7 +11,7 @@ def menu
   choice = nil
   until choice == 'x'
     puts "What would you like to do?"
-    puts "Press 'c' to create a new word, 'r' to view words(do not press r), 'u' to update a word , 'd' to delete a word."
+    puts "Press 'c' to create a new word, 'r' to view words, 'u' to update a word , 'd' to delete a word."
     puts "Press 'x' to exit."
 
     case choice = gets.chomp
@@ -47,8 +46,9 @@ def create
 end
 
 def view
-  results = Entry.all
-  results.map {|word| puts "\n" + word }
+  words = Entry.all
+  puts "Here are all the words in your Wikitionary:"
+  words.map {|word| puts (word.word + ": " + word.definition)}
 end
 
 def delete
@@ -76,6 +76,5 @@ def update
     menu
   end
 end
-
 
 welcome

@@ -11,3 +11,6 @@ require 'pry'
 require 'pry-debugger'
 
 require 'entry'
+
+HEROKU_URL = 'http://wikitionarysmpjl.herokuapp.com/entries'
+LOCAL_URL = 'http://localhost:3000/entries'  

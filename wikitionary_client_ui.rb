@@ -12,7 +12,7 @@ def menu
   choice = nil
   until choice == 'x'
     puts "What would you like to do?"
-    puts "Press 'c' to create a new word, 'r' to view words, 'u' to update a word , 'd' to delete a word."
+    puts "Press 'c' to create a new word, 'r' to view words(do not press r), 'u' to update a word , 'd' to delete a word."
     puts "Press 'x' to exit."
 
     case choice = gets.chomp
@@ -52,22 +52,22 @@ def view
 end
 
 def delete
-  puts "What is the name of the word you want to delete?"
-  word = gets.chomp
-  Entry.delete(word)
-  puts "Wikitionary #{word} has been deleted."
+  puts "What is the id of the word you want to delete?"
+  id = gets.chomp
+  Entry.delete(id)
+  puts "Wikitionary word with #{id}, has been deleted."
 end
 
 def update
   choice = nil
-  puts "What is the word you would like to edit?"
-  word = gets.chomp
+  puts "What is the word id you would like to edit?"
+  id = gets.chomp
   puts "What would you like to edit? Press 1 to edit the word or 2 to edit definition"
   case choice = gets.chomp
   when '1'
     puts "Please enter the updated word:"
     word_name = gets.chomp
-    Entry.edit_word_name(id, word_name)
+    Entry.edit_word(id, word_name)
   when '2'
     puts "Please enter the updated definition:"
     definition = gets.chomp
